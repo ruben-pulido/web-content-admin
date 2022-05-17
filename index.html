@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <title>Web Content Administration</title>
+  <title>Intellij</title>
   <style type="text/css">
     body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -358,6 +358,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 
   </style>
+    <script async src="http://localhost:35729/livereload.js"></script>
 </head>
 <body>
     <div class="progress">
@@ -365,169 +366,610 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   </div>
 
   <div class="slide" id="slide-1">
-    <section class="slide-content"><h1 id="web-content-administration">Web Content Administration</h1>
+    <section class="slide-content"><h1 id="intellij">Intellij</h1>
 </section>
   </div>
   <div class="slide hidden" id="slide-2">
-    <section class="slide-content"><h3 id="setup">Setup</h3>
+    <section class="slide-content"><h3 id="outline">Outline</h3>
 <ul>
-<li>Create &quot;My Masterclass&quot; site based on &quot;Masterclass&quot; site template</li>
-<li>Update &quot;Teacher&quot; Web Content Template to display &quot;info&quot; field</li>
+<li>Installing, updating &amp; rolling back</li>
+<li>Debugging</li>
+<li>Git</li>
+<li>DB</li>
+<li>Shortcuts</li>
+<li>Useful settings</li>
+<li>Useful plugins</li>
+<li>IJ (your best friend in Liferay)</li>
 </ul>
-<pre><code class="lang-code">&lt;h1&gt;${Name.getData()}&lt;/h1&gt;
-
-&lt;h3&gt;
-&lt;#if (Info.getData())??&gt;
-    ${Info.getData()}
-&lt;/#if&gt;
-&lt;/h3&gt;
-</code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-3">
-    <section class="slide-content"><h3 id="web-content-administration-i-">Web Content Administration (I)</h3>
-<ul>
-<li>Edit</li>
-<li>Preview</li>
-<li>Translate</li>
-<li>Expire</li>
-<li>Subscribe</li>
-<li>View History</li>
-<li>View Usages</li>
-</ul>
+    <section class="slide-content"><h3 id="installing-updating-rolling-back">Installing, updating &amp; rolling back</h3>
 </section>
   </div>
   <div class="slide hidden" id="slide-4">
-    <section class="slide-content"><h3 id="web-content-administration-ii-">Web Content Administration (II)</h3>
-<ul>
-<li>Copy</li>
-<li>Export for Translation</li>
-<li>Import Translation</li>
-<li>Move</li>
-<li>Permissions</li>
-</ul>
+    <section class="slide-content"><h3 id="installing-jetbrains-toolbox">Installing Jetbrains Toolbox</h3>
+<pre><code class="lang-code">brew cask install &quot;jetbrains-toolbox&quot;
+</code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-5">
-    <section class="slide-content"><h3 id="view-history">View History</h3>
-<ul>
-<li>Publish several versions of a Web Content (1.1, 1.2, 1.3) updating Teachers &gt; Ralph Edwards</li>
-<li>View history (4 entries)</li>
-<li>Preview last version</li>
-<li>Preview second to last version</li>
-<li>Compare last two versions</li>
-<li>Copy second to last version*</li>
-<li>View history of the newly created web content and assert that it only has one version (version numbering starts all over from 1.0)</li>
-</ul>
+    <section class="slide-content"><h3 id="installing-intellij-from-jetbrains-toolbox">Installing Intellij from Jetbrains Toolbox</h3>
+<p><img 
+  src="./images/toolbox.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:470px;max-width:800px;height:auto;width:auto;" /></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-6">
-    <section class="slide-content"><h3 id="view-history-feedback-">View History (Feedback*)</h3>
-<p>We show source ID and &quot;Autogenerate ID&quot; for the new ID but we don&#39;t allow overwriting the new ID field. </p>
-<ul>
-<li>What is the purpose of this dialog? </li>
-<li>Why do we have this dialog when copying a version of a Web Content and not when copying a Web Content?</li>
-</ul>
+  <div class="slide hidden  " id="slide-6">
+    <section class="slide-content"><h3 id="updating-rolling-back-intellij-from-jetbrains-toolbox">Updating &amp; Rolling back Intellij from Jetbrains Toolbox</h3>
+<p><img 
+  src="./images/update-or-rollback.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:470px;max-width:800px;height:auto;width:auto;" /></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-7">
-    <section class="slide-content"><h3 id="view-usages">View Usages</h3>
-<ul>
-<li>Create content page</li>
-<li>Add a &quot;Content Display Element&quot; fragment and map it to created web content</li>
-<li>Add a &quot;Web Content Display&quot; widget and map it to created web content</li>
-<li>Publish the page</li>
-<li>Copy the page</li>
-<li>View Usages of Web Content now displays 8 Usages</li>
-</ul>
+    <section class="slide-content"><h3 id="opening-projects">Opening projects</h3>
+<p><img 
+  src="./images/projects.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:470px;max-width:800px;height:auto;width:auto;" /></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-8">
-    <section class="slide-content"><h3 id="view-usages-feedback-">View Usages (Feedback)</h3>
-<ul>
-<li>Shouldn&#39;t it display 6 usages, since the new page that was created through the copy action hasn&#39;t been published yet?</li>
-<li>Should we add a column that allows identifying the name/url of the page/page template/master that is using the Web Content?</li>
-</ul>
+    <section class="slide-content"><h3 id="debugging">Debugging</h3>
 </section>
   </div>
   <div class="slide hidden" id="slide-9">
-    <section class="slide-content"><h3 id="expire">Expire</h3>
-<ul>
-<li>View History</li>
-<li>Expire last version</li>
-<li>Refresh page and assert that second to last version of the Web Content is now displayed on the page -&gt;
-Expire on the Web Content expires ALL versions of the web content</li>
-<li>Expire the Web Content entry</li>
-<li>Refresh the page and assert that no content is displayed now</li>
-</ul>
+    <section class="slide-content"><h3 id="create-a-remote-jvm-debug-configuration">Create a remote JVM Debug Configuration</h3>
+<p> <img 
+  src="./images/remote-jvm-debug-configuration.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:520px;max-width:800px;height:auto;width:auto;" /></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-10">
-    <section class="slide-content"><h3 id="expire-feedback-">Expire (Feedback)</h3>
-<p>It seems the &quot;Expire&quot; action cannot be undone. Should we add some kind of warning before expiring a version / a whole Web Content?</p>
+    <section class="slide-content"><h3 id="connect-to-target-vm">Connect to target VM</h3>
+<p> <img 
+  src="./images/debug.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:520px;max-width:800px;height:auto;width:auto;" /></p>
+<p> <img 
+  src="./images/connected-to-target-vm.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:520px;max-width:800px;height:auto;width:auto;" /></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-11">
-    <section class="slide-content"><h3 id="subscribe">Subscribe</h3>
-<ul>
-<li>Create a new user: test2</li>
-<li>Assign it administration role</li>
-<li>With user test subscribe to WC &quot;Teachers &gt; Jerome Bell&quot;</li>
-<li>With user test2 update WC info field to &quot;1.1 Lorem&quot;</li>
-<li>Assert user test gets a notification</li>
-<li>With user test unsubscribe from Web Content</li>
-<li>With user test2 update the Web Content info field to &quot;1.2 Lorem&quot;</li>
-<li>Assert user test no longer gets a notification</li>
-</ul>
+    <section class="slide-content"><h3 id="setting-a-breakpoint">Setting a breakpoint</h3>
+<p> <img 
+  src="./images/breakpoint.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-12">
-    <section class="slide-content"><h3 id="translate">Translate</h3>
-<ul>
-<li>Translate Web Content: &quot;Teachers &gt; Jerome Bell&quot;</li>
-<li>Change language to Spanish</li>
-<li>Set Info field to &quot;1.2 Lorem es&quot;</li>
-<li>Publish</li>
-</ul>
+    <section class="slide-content"><h3 id="debugger">Debugger</h3>
+<p> <img 
+  src="./images/debugger.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-13">
-    <section class="slide-content"><h3 id="export-for-translation">Export for translation</h3>
-<ul>
-<li>Export for translation Web Content: &quot;Teachers &gt; Jerome Bell&quot;</li>
-<li>Unzip file</li>
-<li>Open file on editor ~/Downloads/Jerome\ Bell-en_US-es_ES.xlf</li>
-<li>Update field:<pre><code>      &lt;unit id=&quot;DDMStructure_Info&quot;&gt;
-          &lt;segment&gt;
-              &lt;source&gt;&lt;![CDATA[1.3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]]&gt;&lt;/source&gt;
-              &lt;target&gt;&lt;![CDATA[1.3 Lorem es es]]&gt;&lt;/target&gt;
-          &lt;/segment&gt;
-      &lt;/unit&gt;
-</code></pre></li>
-</ul>
+    <section class="slide-content"><h3 id="stepping">Stepping</h3>
+<p> <img 
+  src="./images/stepping.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-14">
-    <section class="slide-content"><h3 id="import-translation">Import translation</h3>
-<ul>
-<li>Import Translation for Web Content: &quot;Teachers &gt; Jerome Bell&quot;</li>
-<li>Select file &quot;~/Downloads/Jerome\ Bell-en_US-es_ES.xlf&quot;</li>
-<li>Publish</li>
-<li>Click Done</li>
-<li>Open file on editor</li>
-<li>Click Translate</li>
-<li>Select Spanish</li>
-<li>Assert new value &quot;1.3 Lorem es es&quot; is present</li>
-</ul>
+    <section class="slide-content"><h3 id="add-to-watches">Add to watches</h3>
+<p> <img 
+  src="./images/add-to-watches.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-15">
-    <section class="slide-content"><h3 id="documentation">Documentation</h3>
-<p><strong>Managing Expired and Future Scheduled Web Content</strong></p>
-<p><a href="https://help.liferay.com/hc/en-us/articles/360018420931-Managing-Expired-and-Future-Scheduled-Web-Content">https://help.liferay.com/hc/en-us/articles/360018420931-Managing-Expired-and-Future-Scheduled-Web-Content</a></p>
+    <section class="slide-content"><h3 id="watches">Watches</h3>
+<p> <img 
+  src="./images/watches.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-16">
+    <section class="slide-content"><h3 id="watches-can-contain-expressions">Watches can contain expressions</h3>
+<p> <img 
+  src="./images/watches-2.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+<p> <img 
+  src="./images/watches-3.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-17">
+    <section class="slide-content"><h3 id="evaluate-expression-1-">Evaluate expression (1)</h3>
+<p> <img 
+  src="./images/evaluate-expression.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-18">
+    <section class="slide-content"><h3 id="evaluate-expression-2-">Evaluate expression (2)</h3>
+<p> <img 
+  src="./images/evaluate-expression-2.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-19">
+    <section class="slide-content"><h3 id="set-value-1-">Set value (1)</h3>
+<p> <img 
+  src="./images/set-value.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-20">
+    <section class="slide-content"><h3 id="evaluate-expression-2-">Evaluate expression (2)</h3>
+<p> <img 
+  src="./images/set-value-2.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-21">
+    <section class="slide-content"><h3 id="conditional-breakpoint">Conditional Breakpoint</h3>
+<p> <img 
+  src="./images/conditional-breakpoint.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-22">
+    <section class="slide-content"><h3 id="breakpoint-options">Breakpoint Options</h3>
+<p> <img 
+  src="./images/breakpoint-options.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-23">
+    <section class="slide-content"><h3 id="breakpoint-types">Breakpoint Types</h3>
+<p> <img 
+  src="./images/breakpoint-types.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-24">
+    <section class="slide-content"><h3 id="java-exception-breakpoint">Java Exception Breakpoint</h3>
+<p> <img 
+  src="./images/java-exception-breakpoint.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-25">
+    <section class="slide-content"><h3 id="debug-jsps">Debug JSPs</h3>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-26">
+    <section class="slide-content"><h3 id="git">Git</h3>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-27">
+    <section class="slide-content"><h3 id="git-tool-window">Git Tool Window</h3>
+<p> <img 
+  src="./images/git.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-28">
+    <section class="slide-content"><h3 id="git-diff">Git Diff</h3>
+<p> <img 
+  src="./images/git-diff.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-29">
+    <section class="slide-content"><h3 id="git-select-branch">Git Select Branch</h3>
+<p> <img 
+  src="./images/git-select-branch.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-30">
+    <section class="slide-content"><h3 id="git-select-commits">Git Select Commits</h3>
+<p> <img 
+  src="./images/git-select-commits.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-31">
+    <section class="slide-content"><h3 id="git-chery-pick">Git Chery Pick</h3>
+<p> <img 
+  src="./images/git-cherry-pick.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-32">
+    <section class="slide-content"><h3 id="git-conflicts">Git Conflicts</h3>
+<p> <img 
+  src="./images/git-conflicts.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-33">
+    <section class="slide-content"><h3 id="git-merge">Git Merge</h3>
+<p> <img 
+  src="./images/git-merge.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-34">
+    <section class="slide-content"><h3 id="git-interactive-rebase">Git Interactive Rebase</h3>
+<p> <img 
+  src="./images/git-interactive-rebase.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-35">
+    <section class="slide-content"><h3 id="git-interactive-rebase">Git Interactive Rebase</h3>
+<p> <img 
+  src="./images/git-interactive-rebase.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-36">
+    <section class="slide-content"><h3 id="git-rebasing-commits-1-">Git Rebasing Commits (1)</h3>
+<p> <img 
+  src="./images/git-rebasing-commits-1.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-37">
+    <section class="slide-content"><h3 id="git-rebasing-commits-2-">Git Rebasing Commits (2)</h3>
+<p> <img 
+  src="./images/git-rebasing-commits-2.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-38">
+    <section class="slide-content"><h3 id="git-show-history-for-selection-1-">Git Show History for Selection (1)</h3>
+<p> <img 
+  src="./images/git-show-history-for-selection.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-39">
+    <section class="slide-content"><h3 id="git-show-history-for-selection-2-">Git Show History for Selection (2)</h3>
+<p> <img 
+  src="./images/git-show-history-for-selection-2.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-40">
+    <section class="slide-content"><h3 id="git-show-history-for-selection-3-">Git Show History for Selection (3)</h3>
+<p> <img 
+  src="./images/git-show-history-for-selection-3.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-41">
+    <section class="slide-content"><h3 id="git-show-history-for-selection-4-">Git Show History for Selection (4)</h3>
+<p> <img 
+  src="./images/git-show-history-for-selection-4.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-42">
+    <section class="slide-content"><h3 id="git-annotate-with-git-blame-1-">Git Annotate with Git Blame (1)</h3>
+<p> <img 
+  src="./images/git-annotate-with-git-blame.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-43">
+    <section class="slide-content"><h3 id="git-annotate-with-git-blame-2-">Git Annotate with Git Blame (2)</h3>
+<p> <img 
+  src="./images/git-annotate-with-git-blame-2.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-44">
+    <section class="slide-content"><h3 id="git-annotate-with-git-blame-3-">Git Annotate with Git Blame (3)</h3>
+<p> <img 
+  src="./images/git-annotate-with-git-blame-3.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-45">
+    <section class="slide-content"><h3 id="git-paths-affected-in-revision-1-">Git Paths Affected in Revision (1)</h3>
+<p> <img 
+  src="./images/git-paths-affected-in-revision.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-46">
+    <section class="slide-content"><h3 id="git-paths-affected-in-revision-2-">Git Paths Affected in Revision (2)</h3>
+<p> <img 
+  src="./images/git-paths-affected-in-revision-2.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-47">
+    <section class="slide-content"><h3 id="git-show-repository-at-revision-1-">Git Show Repository at Revision (1)</h3>
+<p> <img 
+  src="./images/git-show-repository-at-revision.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-48">
+    <section class="slide-content"><h3 id="git-show-repository-at-revision-2-">Git Show Repository at Revision (2)</h3>
+<p> <img 
+  src="./images/git-show-repository-at-revision-2.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-49">
+    <section class="slide-content"><h3 id="database">Database</h3>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-50">
+    <section class="slide-content"><h3 id="database-new-data-source">Database - New Data Source</h3>
+<p> <img 
+  src="./images/database-new-data-source.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-51">
+    <section class="slide-content"><h3 id="database-new-mysql-data-source">Database - New Mysql Data Source</h3>
+<p> <img 
+  src="./images/database-new-data-source-mysql.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-52">
+    <section class="slide-content"><h3 id="database-tables">Database - Tables</h3>
+<p> <img 
+  src="./images/database-tables.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-53">
+    <section class="slide-content"><h3 id="database-table-keys-indexes">Database - Table Keys &amp; Indexes</h3>
+<p> <img 
+  src="./images/database-table-keys-and-indexes.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-54">
+    <section class="slide-content"><h3 id="database-table-edit-data">Database - Table Edit Data</h3>
+<p> <img 
+  src="./images/database-table-edit-data.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-55">
+    <section class="slide-content"><h3 id="database-transpose-1-">Database - Transpose (1)</h3>
+<p> <img 
+  src="./images/database-table-edit-data-transpose.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-56">
+    <section class="slide-content"><h3 id="database-transpose-2-">Database - Transpose (2)</h3>
+<p> <img 
+  src="./images/database-table-edit-data-transpose-2.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-57">
+    <section class="slide-content"><h3 id="database-edit-value">Database - Edit Value</h3>
+<p> <img 
+  src="./images/database-table-edit-value.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-58">
+    <section class="slide-content"><h3 id="database-preview-pending-changes-submit">Database - Preview Pending Changes &amp; Submit</h3>
+<p> <img 
+  src="./images/database-table-edit-value-preview-pending-changes.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:920px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-59">
+    <section class="slide-content"><h3 id="shortcuts">Shortcuts</h3>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-60">
+    <section class="slide-content"><h3 id="before-diving-into-shortcuts">Before diving into Shortcuts</h3>
+<ul>
+<li>Finding a shortcut</li>
+<li>Customizing shortcuts</li>
+<li>&quot;Key Promoter X&quot; plugin</li>
+<li>Productivity guide</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-61">
+    <section class="slide-content"><h3 id="find-shortcut">Find Shortcut</h3>
+<p> <img 
+  src="./images/keymaps-find-shortcut.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:520px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-62">
+    <section class="slide-content"><h3 id="productivity-guide">Productivity Guide</h3>
+<p> <img 
+  src="./images/productivity-guide.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:520px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-63">
+    <section class="slide-content"><h3 id="diving-into-shortcuts">Diving into Shortcuts</h3>
+<ul>
+<li>Showing/Hiding Tool Windows</li>
+<li>Searching</li>
+<li>Editing Code</li>
+<li>Debugging</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-64">
+    <section class="slide-content"><h3 id="shortcuts-showing-hiding-tool-windows">Shortcuts - Showing/Hiding Tool Windows</h3>
+<ul>
+<li>⌘ 1 Show/Hide Project Tool window</li>
+<li>⌘ 2 Show/Hide local changes</li>
+<li>⌘ 5 Show/Hide Debug Tool Window</li>
+<li>⌘ 8 Show/Hide Database Tool Window</li>
+<li>⌘ 7 Show/Hide Structure Tool Window</li>
+<li>⌘ 8 Show/Hide Pull Requests Window</li>
+<li>⌘ 9 Show/Hide Git Tool Window</li>
+<li>⌘ m Maximize Tool Window</li>
+<li>⎋ Focus editor</li>
+<li>⌘ e</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-65">
+    <section class="slide-content"><h3 id="shortcuts-searching">Shortcuts - Searching</h3>
+<ul>
+<li>⇧ ⌘ A Find Action</li>
+<li>Double ⇧ </li>
+<li>Press multiple times: Some actions in IntelliJ IDEA provide more results when you execute them multiple times
+⌃ Space on a part of a field, parameter, or variable declaration, it suggests</li>
+<li>1s time: names depending on the item type within the current scope </li>
+<li>2nd time: classes available through module dependencies </li>
+<li>3rd time: suggestions will include the whole project</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-66">
+    <section class="slide-content"><h3 id="my-most-used-shortcuts-2-">My most used shortcuts (2)</h3>
+<ul>
+<li>Toggle Show whitespaces</li>
+<li>⌘ d</li>
+<li>⌘ -</li>
+<li>⌥ g</li>
+<li>⇧ ⌘ ⏎ Complete current statement</li>
+<li>⌥ ↑ Extend selection</li>
+<li>⌥ ↓ Shrink selection</li>
+<li>⌘ n</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-67">
+    <section class="slide-content"><ul>
+<li>⌘ f Find in Editor</li>
+<li>⇧ ⌘ f Find in Files</li>
+<li>in project</li>
+<li>in directory</li>
+<li>in scope (production files)</li>
+<li></li>
+<li></li>
+<li>⌘ d Navigate to next change</li>
+<li><p>⌘ d Navigate to previous change</p>
+</li>
+<li></li>
+<li>.var
+-</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-68">
+    <section class="slide-content"><h3 id="shortcuts-editing-code-1-">Shortcuts - Editing Code (1)</h3>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-69">
+    <section class="slide-content"><h3 id="shortcuts-editing-code-1-">Shortcuts - Editing Code (1)</h3>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-70">
+    <section class="slide-content"><h3 id="shortcuts-editing-code-1-">Shortcuts - Editing Code (1)</h3>
+<ul>
+<li>⌘ d Duplicate line</li>
+<li>⌘ d Delete line</li>
+<li>⌘ d Join line</li>
+<li>⌘ d Move line up</li>
+<li>⌘ d Move line down</li>
+<li>⌘ d Move cursor up</li>
+<li>⌘ d Move cursor down</li>
+<li>⌘ d Move cursor to end of the line</li>
+<li>⌘ d Move cursor to beginning of the line</li>
+<li>⌘ d Clone caret up</li>
+<li>⌘ d Clone caret down</li>
+<li><h3 id="shortcuts-code-autocompletion-1-">Shortcuts - Code autocompletion (1)</h3>
+</li>
+<li>Press multiple times: Some actions in IntelliJ IDEA provide more results when you execute them multiple times
+⌃ Space on a part of a field, parameter, or variable declaration, it suggests</li>
+<li>1s time: names depending on the item type within the current scope </li>
+<li>2nd time: classes available through module dependencies </li>
+<li>3rd time: suggestions will include the whole project</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-71">
+    <section class="slide-content"><h3 id="useful-settings">Useful settings</h3>
+<ul>
+<li>Memory tuning</li>
+<li>Configure editor to display always text centered</li>
+<li>Don&#39;t show tabs</li>
+<li>Configure a settings repository</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-72">
+    <section class="slide-content"><h3 id="configure-a-settings-repository-1-">Configure a settings repository (1)</h3>
+<p><img 
+  src="./images/settings-repository.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:470px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-73">
+    <section class="slide-content"><h3 id="configure-a-settings-repository-2-">Configure a settings repository (2)</h3>
+<p><img 
+  src="./images/settings-repository-2.png" 
+  style="margin-left:auto;margin-right:auto;display:block;max-height:470px;max-width:800px;height:auto;width:auto;" /></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-74">
+    <section class="slide-content"><h3 id="increasing-maximum-heap">Increasing maximum heap</h3>
+<ul>
+<li>Can be changed through the toolbox
+<img 
+src="./images/maximum-heap.png" 
+style="margin-left:auto;margin-right:auto;display:block;max-height:470px;max-width:800px;height:auto;width:auto;" /></li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-75">
+    <section class="slide-content"><h3 id="viewing-memory-used">Viewing memory used</h3>
+<ul>
+<li>Memory used and maximum heap available
+<img 
+src="./images/memory.png" 
+style="margin-left:auto;margin-right:auto;display:block;max-height:470px;max-width:800px;height:auto;width:auto;" /></li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-76">
+    <section class="slide-content"><h3 id="useful-plugins">Useful plugins</h3>
+<ul>
+<li>Key Promoter</li>
+<li>String Manipulation</li>
+<li>Co-Author</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-77">
+    <section class="slide-content"><h3 id="ij-your-best-friend-in-liferay-">IJ (your best friend in Liferay)</h3>
+<ul>
+<li>Tool developed by a Liferay employee</li>
+<li>Helps to setup Liferay Portal as project in Intellij</li>
+<li>ij</li>
+<li>ij &lt;path_to_module&gt;</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-78">
+    <section class="slide-content"><h3 id="useful-links">Useful links</h3>
+<ul>
+<li><a href="https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html">https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html</a></li>
+<li><a href="https://www.jetbrains.com/help/idea/increasing-memory-heap.html">https://www.jetbrains.com/help/idea/increasing-memory-heap.html</a></li>
+<li><a href="https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository">https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository</a>
+-</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-79">
     <section class="slide-content"><h3 id="thank-you-">Thank you!</h3>
 <p><img 
   src="./images/thank-you.png" 
@@ -535,10 +977,10 @@ Expire on the Web Content expires ALL versions of the web content</li>
   style="margin-left:auto;margin-right:auto;display:block;max-height:470px;max-width:800px;height:auto;width:auto;" /></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-17">
+  <div class="slide hidden" id="slide-80">
     <section class="slide-content"></section>
   </div>
-  <div class="slide hidden author-slide" id="slide-18">
+  <div class="slide hidden author-slide" id="slide-81">
     <section class="slide-content"><div class="author">
   <h1 class="name">Rubén Pulido</h1>
 </div>
